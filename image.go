@@ -34,6 +34,7 @@ func openImg(path string) (image.Image, error) {
 
 // openGif loads a GIF file from the specified path and returns all frames and their delays.
 func openGif(path string) ([]*image.Paletted, []int, error) {
+	path = os.ExpandEnv(path)
 	f, err := os.Open(path)
 	if err != nil {
 		return nil, nil, err
